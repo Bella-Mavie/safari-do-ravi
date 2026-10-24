@@ -32,7 +32,9 @@ $('opening').classList.add('open');
 $('skip').onclick=endOpening;
 await checkAdmin();setAdminUI();await load();
 </script>
-<style>
+<style>#opening .leaf {
+    display: none !important;
+}
 #opening {
   background: #173c2b url("Convite Safari Dourado do Ravi.png") center center / cover no-repeat !important;
 }
