@@ -97,85 +97,8 @@ await checkAdmin();setAdminUI();await load();
 })();
  </script>
 
-<style>
-/* Nova cortina tropical do Safari */
-#opening .leaf { display:none!important; }
 
-#safariCurtain {
-  position:absolute;
-  inset:0;
-  z-index:5;
-  pointer-events:none;
-  overflow:hidden;
-}
-.safariSide {
-  position:absolute;
-  top:0;
-  width:54%;
-  height:100%;
-  transition:transform 2.8s cubic-bezier(.45,0,.18,1);
-}
-.safariLeft {left:0}
-.safariRight {right:0;transform:scaleX(-1)}
-.safariSide img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-#opening.safariReveal .safariLeft {
-  transform:translateX(-110%);
-}
-#opening.safariReveal .safariRight {
-  transform:translateX(110%) scaleX(-1);
-}
-.safariAnimal {
-  position:absolute;
-  font-size:clamp(26px,7vw,48px);
-  filter:drop-shadow(0 3px 5px #102b1a88);
-  animation:safariFloat 2.5s ease-in-out infinite alternate;
-}
-@keyframes safariFloat {
-  from {translate:0 0}
-  to {translate:0 -14px}
-}
-@media(prefers-reduced-motion:reduce) {
-  .safariSide {transition:none}
-  .safariAnimal {animation:none}
-}
-</style>
 
-<script>
-(() => {
-  const opening = document.getElementById("opening");
-  if (!opening) return;
 
-  const curtain = document.createElement("div");
-  curtain.id = "safariCurtain";
-
-  curtain.innerHTML = `
-    <div class="safariSide safariLeft">
-    <img src="folhagem-esquerda.webp" alt="Folhagem tropical esquerda">
-      <div class="safariAnimal" style="top:17%;left:16%">🐦</div>
-      <div class="safariAnimal" style="top:55%;left:10%">🐿️</div>
-      <div class="safariAnimal" style="top:72%;left:48%">🦋</div>
-    </div>
-    <div class="safariSide safariRight">
-    <img src="folhagem-direita.webp" alt="Folhagem tropical direita">
-      <div class="safariAnimal" style="top:25%;left:25%">🐦</div>
-      <div class="safariAnimal" style="top:65%;left:12%">🐿️</div>
-      <div class="safariAnimal" style="top:48%;left:58%">🦋</div>
-    </div>
-  `;
-
-  opening.appendChild(curtain);
-
-  requestAnimationFrame(() => {
-    setTimeout(() => {
-      opening.classList.add("safariReveal");
-    }, 600);
-  });
-})();
-</script>
   
 </body></html>
