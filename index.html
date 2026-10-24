@@ -28,7 +28,60 @@ $('logout').onclick=async()=>{await db.auth.signOut();admin=false;setAdminUI();a
 $('clear').onclick=async()=>{if(!confirm('Apagar TODAS as fotos da galeria? Essa ação não pode ser desfeita.'))return;if(!confirm('Confirma a exclusão definitiva de todas as fotografias?'))return;let errors=0;for(const item of [...items]){try{await removePhoto(item)}catch(e){errors++}}await load();$('adminStatus').textContent=errors?`${errors} foto(s) não puderam ser apagadas.`:'Todas as fotos foram apagadas.'};
 $('refresh').onclick=load;$('closeViewer').onclick=()=>$('viewer').close();
 function endOpening(){const o=$('opening');o.classList.add('done');setTimeout(()=>o.remove(),800)}
-if(sessionStorage.getItem('raviIntro')||matchMedia('(prefers-reduced-motion: reduce)').matches){endOpening()}else{setTimeout(()=>$('opening')?.classList.add('open'),250);setTimeout(endOpening,3900);sessionStorage.setItem('raviIntro','1')}
+$('opening').classList.add('open');
 $('skip').onclick=endOpening;
 await checkAdmin();setAdminUI();await load();
-</script></body></html>
+</script>
+<style>
+#opening {
+  background: #173c2b url("abertura-safari.png") center center / cover no-repeat !important;
+}
+#opening .leaf,
+#opening .opening-title,
+#opening #skip {
+  display: none !important;
+}
+#opening::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 55%, rgba(9,32,20,.72));
+  pointer-events: none;
+}
+#enterSafari {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  white-space: nowrap;
+  background: #f3dfae;
+  color: #24452e;
+  border: 2px solid #c9a65d;
+  box-shadow: 0 5px 25px #10271999;
+  font-size: 16px;
+}
+#opening.done {
+  opacity: 0;
+}
+</style>
+<script>
+(() => {
+  const opening = document.getElementById("opening");
+  if (!opening) return;
+
+  const button = document.createElement("button");
+  button.id = "enterSafari";
+  button.textContent = "🌿 Entrar na galeria";
+  opening.appendChild(button);
+
+
+  opening.classList.remove("done");
+
+  button.addEventListener("click", () => {
+    opening.classList.add("done");
+    setTimeout(() => opening.remove(), 750);
+  });
+})();
+ </script>
+</body></html>
