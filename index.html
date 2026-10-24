@@ -100,13 +100,14 @@ await checkAdmin();setAdminUI();await load();
   background-size: 145px 190px, 220px 260px, 175px 230px;
   background-position: 15px 25px, 90px 120px, 55px 80px;
   opacity: .9;
-  animation: brilhoSafari 2.5s ease-in-out infinite alternate;
+  animation: brilhoSafari 8s ease-in-out infinite alternate;
 }
 
 
 @keyframes brilhoSafari {
-  from { opacity: .2; }
-  to { opacity: .75; }
+  0%   { opacity: .45; }
+  50%  { opacity: .95; }
+  100% { opacity: .45; }
 }
 
 @media (prefers-reduced-motion: reduce) {
