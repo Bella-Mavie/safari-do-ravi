@@ -86,21 +86,23 @@ await checkAdmin();setAdminUI();await load();
 }
   
 /* Brilho dourado delicado na entrada */
+
 #opening::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
   background-image:
-    radial-gradient(circle, #ffe9a0 0 1px, transparent 3px),
-    radial-gradient(circle, #ffd36a 0 1.5px, transparent 4px),
-    radial-gradient(circle, #fff3c7 0 1px, transparent 3px);
-  background-size: 110px 150px, 170px 210px, 230px 180px;
-  background-position: 12px 20px, 75px 95px, 35px 60px;
-  opacity: .65;
-  animation: brilhoSafari 4s ease-in-out infinite alternate;
+    radial-gradient(circle, #fff6c5 0 2px, #ffd86b 3px, transparent 9px),
+    radial-gradient(circle, #fff3a0 0 2px, #e9b943 4px, transparent 12px),
+    radial-gradient(circle, #ffffff 0 1px, #ffdb75 3px, transparent 7px);
+  background-size: 145px 190px, 220px 260px, 175px 230px;
+  background-position: 15px 25px, 90px 120px, 55px 80px;
+  opacity: .9;
+  animation: brilhoSafari 2.5s ease-in-out infinite alternate;
 }
+
 
 @keyframes brilhoSafari {
   from { opacity: .2; }
