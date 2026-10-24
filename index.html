@@ -85,37 +85,9 @@ await checkAdmin();setAdminUI();await load();
   opacity: 0;
 }
   
-/* Brilho dourado delicado na entrada */
-
-#opening::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle, #fff6c5 0 2px, #ffd86b 3px, transparent 9px),
-    radial-gradient(circle, #fff3a0 0 2px, #e9b943 4px, transparent 12px),
-    radial-gradient(circle, #ffffff 0 1px, #ffdb75 3px, transparent 7px);
-  background-size: 145px 190px, 220px 260px, 175px 230px;
-  background-position: 15px 25px, 90px 120px, 55px 80px;
-  opacity: .9;
-  animation: brilhoSafari 2.5s ease-in-out 4 alternate forwards;
-}
 
 
-@keyframes brilhoSafari {
-  0% {
-    opacity: .35;
-  }
-  100% {
-    opacity: .95;
-  }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  #opening::before { animation: none; }
-}
   
 </style>
 <script>
